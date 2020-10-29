@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Event.h>
+
 namespace cae
 {
   class KeyEventListener
