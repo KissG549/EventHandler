@@ -1,5 +1,4 @@
 #include "KeyEventListener.h"
-#include <Event.h>
 
 namespace cae
 {
