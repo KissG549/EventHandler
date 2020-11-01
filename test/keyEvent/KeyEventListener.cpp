@@ -29,7 +29,6 @@ namespace cae
 
 	void KeyEventListener::operator()(const EventArgs& iArgs)
 	{
-		std::cout << "KeyEventListener::operator called" << std::endl;
 		EventArgs *tmpArgs = const_cast<EventArgs *>(&iArgs);
 		KeyEventArgs<std::string>* strEventArgs = dynamic_cast<KeyEventArgs<std::string>*>(tmpArgs);
 
@@ -53,7 +52,7 @@ namespace cae
 		EventArgs* tmpArgs = const_cast<EventArgs*>(&iArgs);
 		KeyEventArgs<std::string>* strEventArgs = dynamic_cast<KeyEventArgs<std::string>*>(tmpArgs);
 		
-		std::cout << "KeyEventListener::onNumber " << strEventArgs->getValue() << std::endl;
+		std::cout << "N: " << strEventArgs->getValue() << std::endl;
 	}
 
 	void KeyEventListener::onString(const EventArgs& iArgs)
@@ -61,7 +60,7 @@ namespace cae
 		EventArgs* tmpArgs = const_cast<EventArgs*>(&iArgs);
 		KeyEventArgs<std::string>* strEventArgs = dynamic_cast<KeyEventArgs<std::string>*>(tmpArgs);
 
-		std::cout << "KeyEventListener::onString " << strEventArgs->getValue() << std::endl;
+		std::cout << "S: " << strEventArgs->getValue() << std::endl;
 	}
 
 }
