@@ -57,9 +57,9 @@ int main()
 		else
 		{
 			args = new cae::KeyEventArgs<std::string>(eventStr, word);
-			eventStr.Raise(*args);
 		}
 		
+		eventStr.Raise(*args);
 		argsVector.push_back(args);
 	}
 	
