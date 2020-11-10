@@ -23,28 +23,8 @@ namespace cae
 	KeyEventListener::KeyEventListener(Event& iEventNum, Event& iEventStr)
 		:mEventNum(iEventNum),mEventStr(iEventStr)
 	{
-		iEventNum += *this;
-		iEventStr += *this;
-	}
-
-	void KeyEventListener::operator()(const EventArgs& iArgs)
-	{
-		EventArgs *tmpArgs = const_cast<EventArgs *>(&iArgs);
-		KeyEventArgs<std::string>* strEventArgs = dynamic_cast<KeyEventArgs<std::string>*>(tmpArgs);
-
-		if ( strEventArgs )
-		{
-			// compare addresses
-			if (&(strEventArgs->getEvent()) == &mEventStr)
-			{	// it's a string
-				onString(iArgs);
-			}
-			else
-			{
-				// it's a number
-				onNumber(iArgs);
-			}
-		}
+		iEventNum += ([&](const EventArgs& eventArgs) { this->onNumber(eventArgs); });
+		iEventStr += ([&](const EventArgs& eventArgs) { this->onString(eventArgs); });
 	}
 
 	void KeyEventListener::onNumber(const EventArgs& iArgs)
