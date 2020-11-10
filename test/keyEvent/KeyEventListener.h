@@ -28,8 +28,6 @@ namespace cae
 
     ~KeyEventListener() = default;
 
-    //void operator()(const EventArgs& iArgs);
-
   private:
     void onNumber(const EventArgs& iArgs);
 
